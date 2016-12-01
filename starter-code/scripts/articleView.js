@@ -53,7 +53,10 @@ articleView.handleCategoryFilter = function() {
 
 articleView.handleMainNav = function () {
   $('.main-nav').on('click', '.tab', function() {
-    /* TODO:
+    $('.tab-content').hide();
+    $('#' + $(this).attr('data-content')).fadeIn(700);
+    console.log($(this).attr('data-content'));
+    /* TODONE:
       1. Hide all of the .tab-content sections
       2. Fade in the single .tab-content section that is
         associated with the .tab element's data-content attribute. (Think about what was clicked on...may need to hide element before clicking???)
@@ -65,6 +68,11 @@ articleView.handleMainNav = function () {
 articleView.setTeasers = function() {
   // Truncate logic to show only first two elements within the article body.
   $('.article-body *:nth-of-type(n+2)').hide();
+  $('#articles').on('click', 'a.read-on', function(event) {
+    event.preventDefault();
+    $(this).parent().find('*').show();
+    $(this).text('Show Less');
+  });
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
     When a .read-on link is clicked, we can:
     1. Prevent the default action of a link.(prevents page from reloading...pass handler in event object)
@@ -75,7 +83,9 @@ articleView.setTeasers = function() {
   */
 };
 
-// TODO: Invoke all of the above functions (I mean, methods!):
+// TODONE: Invoke all of the above functions (I mean, methods!):
 articleView.populateFilters();
 articleView.handleAuthorFilter();
 articleView.handleCategoryFilter();
+articleView.handleMainNav();
+articleView.setTeasers();
