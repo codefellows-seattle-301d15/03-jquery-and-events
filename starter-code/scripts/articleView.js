@@ -19,8 +19,10 @@ articleView.populateFilters = function() {
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     if ($(this).val()) {
+      $('article').hide();
+      $('newArticle[data-attribute]').fadeIn(700);
       /* TODO: If the select box changes to an option that has a value, we should:
-          1. Hide all of the articles
+          1. Hide all of the articles (may need to use double-single quote concatenation)
           2. Fade in only the articles that match based on on the author
             that was aselected. Hint: use an attribute selector to find
             those articles that match the value, and then fade them in.
@@ -44,7 +46,7 @@ articleView.handleMainNav = function () {
     /* TODO:
       1. Hide all of the .tab-content sections
       2. Fade in the single .tab-content section that is
-        associated with the .tab element's data-content attribute.
+        associated with the .tab element's data-content attribute. (Think about what was clicked on...may need to hide element before clicking???)
     */
   });
   $('.main-nav .tab:first').click();
@@ -55,8 +57,8 @@ articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide();
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
     When a .read-on link is clicked, we can:
-    1. Prevent the default action of a link.
-    2. Reveal everything in that particular article now.
+    1. Prevent the default action of a link.(prevents page from reloading...pass handler in event object)
+    2. Reveal everything in that particular article now.(use a traverse method to target the section above the anchor tag)
     3. Hide that read-on link!
 
     // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
