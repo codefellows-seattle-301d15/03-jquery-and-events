@@ -59,6 +59,8 @@ articleView.handleMainNav = function () {
       2. Fade in the single .tab-content section that is
         associated with the .tab element's data-content attribute.
     */
+    $('.tab-content').hide();
+    $('#'+ $(this).data('content')).fadeIn('slow');
   });
   $('.main-nav .tab:first').click();
 };
