@@ -81,17 +81,25 @@ articleView.setTeasers = function() {
   // Truncate logic to show only first two elements within the article body.
   $('.article-body *:nth-of-type(n+2)').hide();
 
-  $('.read-on').on('click', 'event.preventDefault()');
-  //
-  /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
-    When a .read-on link is clicked, we can:
-    1. Prevent the default action of a link.
-    2. Reveal everything in that particular article now.
-    3. Hide that read-on link!
+  $('.read-on').on('click', function(event) {
+    event.preventDefault();
+    $(this).parent().find('.article-body *:nth-of-type(n+2)').fadeIn();
 
-    // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
-  */
+    $(this).hide();
+  });
 };
+
+    //
+    /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
+      When a .read-on link is clicked, we can:
+      1. Prevent the default action of a link.
+      2. Reveal everything in that particular article now.
+      3. Hide that read-on link!
+
+      // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
+    */
+
+
 
 // TODONE: Invoke all of the above functions (I mean, methods!):
 
