@@ -29,8 +29,8 @@ articleView.handleAuthorFilter = function() {
         */
     } else {
       $('article').not('.template').not;
-    /* Otherwise, we should:
-        1. Show all the articles except the template */
+      /* Otherwise, we should:
+          1. Show all the articles except the template */
     }
     $('#category-filter').val('');
   });
@@ -52,8 +52,8 @@ articleView.handleCategoryFilter = function() {
         */
     } else {
       $('article').not('.template').not;
-    /* Otherwise, we should:
-        1. Show all the articles except the template */
+      /* Otherwise, we should:
+          1. Show all the articles except the template */
     }
     // $('#category-filter').val('');
   });
@@ -61,33 +61,38 @@ articleView.handleCategoryFilter = function() {
 
 
 
-articleView.handleMainNav = function () {
-  $('.main-nav').on('click', '.tab', function() {
-    /* TODO:
-      1. Hide all of the .tab-content sections
-      2. Fade in the single .tab-content section that is
-        associated with the .tab element's data-content attribute.
-    */
-  });
-  $('.main-nav .tab:first').click();
-};
+articleView.handleMainNav = function() {
+    $('.main-nav').on('click', '.tab', function() {
+        $('.tab-content').hide();
+        $('#' + $(this).data('content')
+          /* TODO:
 
-articleView.setTeasers = function() {
-  // Truncate logic to show only first two elements within the article body.
-  $('.article-body *:nth-of-type(n+2)').hide();
-  /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
-    When a .read-on link is clicked, we can:
-    1. Prevent the default action of a link.
-    2. Reveal everything in that particular article now.
-    3. Hide that read-on link!
 
-    // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
-  */
-};
+            1. Hide all of the .tab-content sections
+            2. Fade in the single .tab-content section that is
+              associated with the .tab element's data-content attribute.
+          */
+        }); $('.main-nav .tab:first').click();
+    };
 
-// TODO: Invoke all of the above functions (I mean, methods!):
+    articleView.setTeasers = function() {
+      // Truncate logic to show only first two elements within the article body.
+      $('.article-body *:nth-of-type(n+2)').hide();
+      .on('click', '')
+        /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
+          When a .read-on link is clicked, we can:
+          1. Prevent the default action of a link.
+          2. Reveal everything in that particular article now.
+          3. Hide that read-on link!
 
-articleView.populateFilters();
-articleView.handleAuthorFilter();
-articleView.handleCategoryFilter();
-articleView.setTeasers();
+          // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
+        */
+    };
+
+    // TODONE: Invoke all of the above functions (I mean, methods!):
+
+    articleView.populateFilters();
+    articleView.handleMainNav();
+    articleView.handleAuthorFilter();
+    articleView.handleCategoryFilter();
+    articleView.setTeasers();
