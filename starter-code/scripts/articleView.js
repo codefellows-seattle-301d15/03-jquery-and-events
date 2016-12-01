@@ -55,7 +55,6 @@ articleView.handleMainNav = function () {
   $('.main-nav').on('click', '.tab', function() {
     $('.tab-content').hide();
     $('#' + $(this).attr('data-content')).fadeIn(700);
-    console.log($(this).attr('data-content'));
     /* TODONE:
       1. Hide all of the .tab-content sections
       2. Fade in the single .tab-content section that is
