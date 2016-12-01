@@ -80,7 +80,9 @@ articleView.handleMainNav = function() {
 articleView.setTeasers = function() {
   // Truncate logic to show only first two elements within the article body.
   $('.article-body *:nth-of-type(n+2)').hide();
-  // .on('click', '')
+
+  $('.read-on').on('click', 'event.preventDefault()');
+  //
   /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
     When a .read-on link is clicked, we can:
     1. Prevent the default action of a link.
