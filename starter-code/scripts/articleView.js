@@ -86,11 +86,13 @@ articleView.setTeasers = function() {
     $(this).parent().find('.article-body *:nth-of-type(n+2)').fadeIn();
 
     $(this).hide();
+
+
   });
 };
 
     //
-    /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
+    /* TODONOE: Add a delegated event handler to reveal the remaining paragraphs.
       When a .read-on link is clicked, we can:
       1. Prevent the default action of a link.
       2. Reveal everything in that particular article now.
