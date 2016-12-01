@@ -25,9 +25,15 @@ articleView.handleAuthorFilter = function() {
             that was aselected. Hint: use an attribute selector to find
             those articles that match the value, and then fade them in.
         */
+      $('article.template').hide();
+      if ($(this).val() === $('#author-filter option').attr('value')){
+        $(this).val().fadeIn('slow');
+      }
     } else {
     /* Otherwise, we should:
         1. Show all the articles except the template */
+      $('article').show();
+      $('article.template').hide();
     }
     $('#category-filter').val('');
   });
